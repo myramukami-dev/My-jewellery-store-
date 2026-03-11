@@ -1,0 +1,161 @@
+/* External CSS - travel.css */
+/* Styling headings H1 to H4 using classes and IDs */
+
+/* Container styling */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Heading 1 styles */
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+#main-title {
+    color: #2c3e50;
+    text-align: center;
+    border-bottom: 3px solid #3498db;
+    padding-bottom: 10px;
+}
+
+.title-light {
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+/* Heading 2 styles */
+h2 {
+    font-size: 2em;
+    margin-top: 25px;
+}
+
+#sub-title {
+    color: #e67e22;
+    font-style: italic;
+}
+
+.title-accent {
+    background: linear-gradient(to right, #f39c12, #f1c40f);
+    padding: 5px 15px;
+    display: inline-block;
+    border-radius: 5px;
+}
+
+/* Heading 3 styles */
+h3 {
+    font-size: 1.75em;
+    color: #27ae60;
+}
+
+#section-head {
+    text-transform: uppercase;
+    border-left: 5px solid #27ae60;
+    padding-left: 15px;
+}
+
+.title-regular {
+    font-weight: 400;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+/* Heading 4 styles */
+h4 {
+    font-size: 1.5em;
+    color: #8e44ad;
+}
+
+#mini-head {
+    text-decoration: underline wavy #8e44ad;
+}
+
+.title-small {
+    font-size: 1.3em;
+    background-color: #f8f9fa;
+    padding: 8px 15px;
+    border-radius: 20px;
+}
+
+/* Paragraph styles - base class */
+.paragraph {
+    line-height: 1.6;
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    transition: transform 0.2s;
+}
+
+.paragraph:hover {
+    transform: translateX(5px);
+}
+
+/* Individual paragraph classes and IDs */
+#intro-text {
+    background-color: #e8f4f8;
+    border-left: 4px solid #3498db;
+    font-size: 1.1em;
+}
+
+.highlight {
+    background-color: #fff3cd;
+    border: 1px solid #ffeeba;
+    color: #856404;
+}
+
+.note {
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    color: #155724;
+    font-style: italic;
+}
+
+#beach-desc {
+    background-color: #cce5ff;
+    border: 1px solid #b8daff;
+    color: #004085;
+    font-weight: 500;
+}
+
+.important {
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    color: #721c24;
+    font-weight: bold;
+}
+
+.tip {
+    background-color: #d1ecf1;
+    border: 1px solid #bee5eb;
+    color: #0c5460;
+    font-family: 'Courier New', monospace;
+}
+
+#footer-note {
+    background-color: #6c757d;
+    color: white;
+    text-align: center;
+    font-size: 1.2em;
+    padding: 20px;
+    margin-top: 30px;
+    border-radius: 50px 10px 50px 10px;
+}
+
+/* Additional paragraph styling */
+.paragraph:last-of-type {
+    margin-bottom: 0;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
+    
+    h1 { font-size: 2em; }
+    h2 { font-size: 1.75em; }
+    h3 { font-size: 1.5em; }
+    h4 { font-size: 1.3em; }
+}

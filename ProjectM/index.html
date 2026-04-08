@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="description" content="Lucent Heirlooms - timeless jewelry heritage with handcrafted necklaces, bracelets, earrings, bangles, anklets, and artisan videos.">
     <title>Lucent Heirlooms | Timeless Jewelry Heritage with Video & Imagery</title>
     <style>
         * {
@@ -26,11 +27,58 @@
             padding: 2rem 1.5rem;
         }
 
+        /* ========== MENU BAR (navigation) ========== */
+        .navbar {
+            background: #fffafc;
+            backdrop-filter: blur(4px);
+            border-radius: 3rem;
+            margin-bottom: 2rem;
+            padding: 0.75rem 2rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.02);
+            border: 1px solid #fce4ec;
+            position: sticky;
+            top: 1rem;
+            z-index: 100;
+            background-color: rgba(255, 250, 252, 0.92);
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links li a {
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            color: #b16275;
+            padding: 0.5rem 0.2rem;
+            transition: all 0.2s ease;
+            border-bottom: 2px solid transparent;
+            letter-spacing: 0.3px;
+        }
+
+        .nav-links li a:hover {
+            color: #8f5e6b;
+            border-bottom-color: #f3bacb;
+            transform: translateY(-1px);
+        }
+
+        /* active / smooth scroll highlight */
+        .nav-links li a:active {
+            color: #a1475f;
+        }
+
         /* header & hero */
         .hero {
             text-align: center;
             margin-bottom: 3rem;
             padding: 1rem 0;
+            scroll-margin-top: 90px;
         }
 
         .hero h1 {
@@ -50,13 +98,14 @@
             font-style: italic;
         }
 
-        /* heritage paragraphs (5 paragraphs) */
+        /* heritage paragraphs (5 paragraphs) + material heritage section */
         .heritage-section {
             background: rgba(255, 245, 245, 0.7);
             border-radius: 2rem;
             padding: 1.5rem 2rem;
             margin-bottom: 3rem;
             box-shadow: 0 8px 18px rgba(0, 0, 0, 0.02);
+            scroll-margin-top: 80px;
         }
 
         .heritage-grid {
@@ -115,7 +164,7 @@
             box-shadow: 0 20px 30px rgba(0, 0, 0, 0.08);
         }
 
-        /* image wrapper with hover effect (light blue overlay / border / scale) */
+        /* image wrapper with hover effect */
         .img-wrapper {
             width: 100%;
             height: 260px;
@@ -135,7 +184,6 @@
             transition: transform 0.4s ease, filter 0.2s;
         }
 
-        /* HOVER EFFECT FOR IMAGES: light blue glow + slight scale + light blue tint overlay */
         .img-wrapper:hover .product-img {
             transform: scale(1.03);
             filter: brightness(1.02) drop-shadow(0 0 5px rgba(173, 216, 230, 0.6));
@@ -146,7 +194,6 @@
             background: #e6f4ff;
         }
 
-        /* product info */
         .product-info {
             padding: 1rem 0.8rem 1rem;
         }
@@ -171,13 +218,14 @@
             letter-spacing: 0.5px;
         }
 
-        /* table section with hover effect (light blue) */
+        /* table section with hover effect */
         .table-container {
             background: #fffafc;
             border-radius: 2rem;
             padding: 1.5rem;
             margin: 2rem 0 2rem;
             box-shadow: 0 5px 12px rgba(0,0,0,0.02);
+            scroll-margin-top: 80px;
         }
 
         .table-container h3 {
@@ -216,7 +264,6 @@
             transition: all 0.2s ease;
         }
 
-        /* HOVER EFFECT FOR TABLE ROWS: light blue background + subtle transition */
         .jewelry-table tr:hover {
             background-color: #e1f3fe;
             transition: 0.2s;
@@ -227,7 +274,7 @@
             transition: 0.1s;
         }
 
-        /* Video section styling — working youtube videos embedded */
+        /* Video section styling — videos + extra video gallery */
         .video-story-section {
             background: #fff9fc;
             border-radius: 2rem;
@@ -235,6 +282,7 @@
             margin: 2rem 0 2rem;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.02);
             border: 1px solid #fce4ec;
+            scroll-margin-top: 80px;
         }
 
         .video-story-section h3 {
@@ -272,7 +320,7 @@
         .video-wrapper {
             position: relative;
             width: 100%;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            padding-bottom: 56.25%;
             background: #000;
         }
 
@@ -296,7 +344,15 @@
             border-top: 1px solid #ffe0e8;
         }
 
-        /* additional footer */
+        /* extra video section (optional) as part of 'videos' menu */
+        .extra-video-note {
+            background: #fff2f7;
+            border-radius: 1.8rem;
+            padding: 1.2rem;
+            margin-top: 1rem;
+            text-align: center;
+        }
+
         .footer {
             text-align: center;
             margin-top: 3rem;
@@ -306,13 +362,18 @@
             color: #a87c89;
         }
 
-        /* responsive touches */
         @media (max-width: 680px) {
             .container {
                 padding: 1rem;
             }
             .hero h1 {
                 font-size: 2.2rem;
+            }
+            .nav-links {
+                gap: 1rem;
+            }
+            .nav-links li a {
+                font-size: 0.9rem;
             }
             .product-grid {
                 gap: 1.2rem;
@@ -325,22 +386,31 @@
             }
         }
 
-        .accent-text {
-            font-weight: 500;
-            color: #c28598;
+        .section-marker {
+            scroll-margin-top: 95px;
         }
     </style>
 </head>
 <body>
 <div class="container">
-    <!-- Hero section -->
-    <div class="hero">
+    <!-- Navigation Menu Bar (Home, Cherished Collections, Material and Heritage, Videos) -->
+    <div class="navbar">
+        <ul class="nav-links">
+            <li><a href="#home">🏠 Home</a></li>
+            <li><a href="#cherished-collections">✨ Cherished Collections</a></li>
+            <li><a href="#material-heritage">📜 Material & Heritage</a></li>
+            <li><a href="#videos-section">🎬 Videos</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero / Home section -->
+    <div id="home" class="hero section-marker">
         <h1>✨ LUCENT HEIRLOOMS ✨</h1>
         <p>where legacy meets luminosity — celebrating timeless artistry</p>
     </div>
 
-    <!-- 5 heritage paragraphs about jewelry & their heritage -->
-    <div class="heritage-section">
+    <!-- 5 heritage paragraphs (Material & Heritage integrated) -->
+    <div id="material-heritage" class="heritage-section section-marker">
         <div class="heritage-grid">
             <div class="heritage-card"><p>📜 <strong>The Eternal Allure of Adornment</strong> — Since antiquity, jewelry has been more than decoration; it is a language of identity, status, and spirituality. From Mesopotamian lapis lazuli beads to the granulation work of ancient Etruscans, each era sculpted beauty into wearable art. Our heritage draws from these ancestral techniques, honoring the belief that jewelry carries the whispers of generations.</p></div>
             <div class="heritage-card"><p>🏺 <strong>Sacred Symbols & Craftsmanship</strong> — In many cultures, necklaces and pendants were talismans against evil, while bracelets symbolized eternal cycles. The meticulous lost-wax casting, filigree, and hand engraving passed through families for centuries. Every motif — from lotus to evil eye — tells a story of protection, love, and continuity. At Lucent Heirlooms, we revive these ancient narratives with ethical sourcing and artisanal devotion.</p></div>
@@ -350,13 +420,13 @@
         </div>
     </div>
 
-    <!-- 5 jewelry items: necklaces, bracelets, earrings, bangles, anklets with REAL high-quality images (Unsplash + styled) -->
-    <div style="text-align: center;">
+    <!-- Cherished Collections: 5 jewelry items (prices in Kenyan Shillings KES) -->
+    <div id="cherished-collections" class="section-marker" style="text-align: center;">
         <span class="products-title">⋆  cherished collections  ⋆</span>
     </div>
 
     <div class="product-grid">
-        <!-- 1. NECKLACE - Real pearl necklace image from reliable CDN -->
+        <!-- 1. NECKLACE - Converted to KES (425 USD → approx 425 * 135 = 57,375 KES) -->
         <div class="product-card">
             <div class="img-wrapper">
                 <img class="product-img" src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600&h=600&fit=crop" alt="Elegant pearl necklace gold clasp" loading="lazy">
@@ -364,11 +434,11 @@
             <div class="product-info">
                 <h3>✨ Celestial Pearl Necklace</h3>
                 <div class="desc">Freshwater pearls • 18k gold clasp • hand-knotted silk</div>
-                <div class="price">$425</div>
+                <div class="price">KES 57,375</div>
             </div>
         </div>
 
-        <!-- 2. BRACELETS - Real delicate chain bracelet -->
+        <!-- 2. BRACELET (189 USD → 189*135 = 25,515 KES) -->
         <div class="product-card">
             <div class="img-wrapper">
                 <img class="product-img" src="https://images.unsplash.com/photo-1611085583191-a3b181a88401?w=600&h=600&fit=crop" alt="Delicate chain bracelet with moonstone charm" loading="lazy">
@@ -376,11 +446,11 @@
             <div class="product-info">
                 <h3>🌙 Luna Embrace Bracelet</h3>
                 <div class="desc">adjustable chain • moonstone accent • sterling silver</div>
-                <div class="price">$189</div>
+                <div class="price">KES 25,515</div>
             </div>
         </div>
 
-        <!-- 3. EARRINGS - Real Victorian style drop earrings -->
+        <!-- 3. EARRINGS (275 USD → 275*135 = 37,125 KES) -->
         <div class="product-card">
             <div class="img-wrapper">
                 <img class="product-img" src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600&h=600&fit=crop" alt="Vintage filigree earrings rose gold" loading="lazy">
@@ -388,11 +458,11 @@
             <div class="product-info">
                 <h3>🌿 Antique Vine Earrings</h3>
                 <div class="desc">filigree design • rose-cut zircons • gold vermeil</div>
-                <div class="price">$275</div>
+                <div class="price">KES 37,125</div>
             </div>
         </div>
 
-        <!-- 4. BANGLES - Real hammered gold bangle set -->
+        <!-- 4. BANGLES (349 USD → 349*135 = 47,115 KES) -->
         <div class="product-card">
             <div class="img-wrapper">
                 <img class="product-img" src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=600&h=600&fit=crop" alt="Hammered gold bangles traditional design" loading="lazy">
@@ -400,11 +470,11 @@
             <div class="product-info">
                 <h3>☀️ Sunburst Halo Bangles</h3>
                 <div class="desc">set of 2 • hammered texture • 22k gold finish</div>
-                <div class="price">$349</div>
+                <div class="price">KES 47,115</div>
             </div>
         </div>
 
-        <!-- 5. ANKLETS - Real anklet with charms -->
+        <!-- 5. ANKLETS (159 USD → 159*135 = 21,465 KES) -->
         <div class="product-card">
             <div class="img-wrapper">
                 <img class="product-img" src="https://images.unsplash.com/photo-1589674781759-c21c37956a33?w=600&h=600&fit=crop" alt="Silver anklet with bell charms oxidized" loading="lazy">
@@ -412,31 +482,49 @@
             <div class="product-info">
                 <h3>🌸 Nupur Silver Anklet</h3>
                 <div class="desc">adjustable • bell charms • oxidized silver</div>
-                <div class="price">$159</div>
+                <div class="price">KES 21,465</div>
             </div>
         </div>
     </div>
 
-    <!-- New SECTION: WORKING YOUTUBE VIDEOS (jewelry heritage, craftsmanship & tutorials) -->
-    <div class="video-story-section">
+    <!-- Updated Table with Kenyan Shillings -->
+    <div class="table-container section-marker">
+        <h3>📖 heirloom collection at a glance (KES)</h3>
+        <table class="jewelry-table">
+            <thead>
+                <tr><th>Jewelry Type</th><th>Material & Heritage</th><th>Symbolism</th><th>Price (KES)</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Necklace</td><td>Akoya pearls, hand-knotted, inspired by Georgian era</td><td>Purity & wisdom</td><td>57,375</td></tr>
+                <tr><td>Bracelet</td><td>Moonstone + sterling silver, Art Nouveau revival</td><td>Intuition & cycles</td><td>25,515</td></tr>
+                <tr><td>Earrings</td><td>Filigree, rose-cut zircons, Victorian romanticism</td><td>Grace & femininity</td><td>37,125</td></tr>
+                <tr><td>Bangles</td><td>Gold-plated brass, hand-hammered, traditional Indian craft</td><td>Prosperity & union</td><td>47,115</td></tr>
+                <tr><td>Anklets</td><td>Oxidized silver with bell accents, ancient Payal tradition</td><td>Celebration & rhythm</td><td>21,465</td></tr>
+            </tbody>
+        </table>
+        <p style="margin-top: 1rem; font-size: 0.8rem; text-align: center; color:#b17c8a;">✨ Each piece is ethically handcrafted • heirloom quality • prices in Kenyan Shillings ✨</p>
+    </div>
+
+    <!-- VIDEOS SECTION (as requested: add videos and also add videos from menu) -->
+    <div id="videos-section" class="video-story-section section-marker">
         <h3>📽️ THE ART OF HEIRLOOMS | WATCH & DISCOVER</h3>
         <p style="text-align: center; color:#a87181; margin-bottom: 0.5rem;">Explore the timeless techniques, behind the scenes, and stories that shape each piece.</p>
         <div class="video-grid">
-            <!-- YouTube Video 1: Jewelry Making Process & Heritage (working embed) -->
+            <!-- YouTube Video 1: Jewelry Making Process & Heritage -->
             <div class="video-card">
                 <div class="video-wrapper">
                     <iframe src="https://www.youtube.com/embed/09RzFzIWw7M" title="The Art of Jewelry Making - Heritage Craft" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
                 <div class="video-caption">✨ Master artisans handcrafting heirloom jewelry ✨</div>
             </div>
-            <!-- YouTube Video 2: The Symbolism & History of Gemstones (engaging & educational) -->
+            <!-- YouTube Video 2: Symbolism of Gemstones -->
             <div class="video-card">
                 <div class="video-wrapper">
                     <iframe src="https://www.youtube.com/embed/51eNOGU62a4" title="Symbolism of Gemstones & Royal Jewelry Heritage" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
                 <div class="video-caption">💎 Gemstone lore & ancient traditions decoded 💎</div>
             </div>
-            <!-- YouTube Video 3: How to style necklace, bangles and anklets – modern heirloom look -->
+            <!-- YouTube Video 3: Styling necklaces, bangles, anklets -->
             <div class="video-card">
                 <div class="video-wrapper">
                     <iframe src="https://www.youtube.com/embed/Zn7UpVcQbBs" title="Styling Heirloom Jewelry: Necklaces, Bangles & Anklets" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -444,28 +532,18 @@
                 <div class="video-caption">👑 Styling tips for timeless elegance 👑</div>
             </div>
         </div>
+        <!-- Additional embedded video to emphasize 'videos' section (bonus 4th video) -->
+        <div class="extra-video-note">
+            <p style="font-weight: 500; margin-bottom: 0.75rem;">📽️ BONUS: The Heritage of Handcrafted Bangles & Anklets</p>
+            <div style="position: relative; padding-bottom: 30%; height: 0; max-width: 560px; margin: 0 auto; border-radius: 1rem; overflow: hidden;">
+                <iframe style="position: absolute; top:0; left:0; width:100%; height:100%;" src="https://www.youtube.com/embed/qlkGjE_9DcM" title="Traditional Bangle Making Process" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <p style="margin-top: 0.6rem; font-size: 0.8rem;">🎥 Witness the making of heirloom bangles and anklets — passed down through generations.</p>
+        </div>
         <p style="text-align: center; margin-top: 1.2rem; font-size: 0.8rem; color:#ba8c9a;">🎥 Immerse in the world of craftsmanship — each video celebrates the spirit of Lucent Heirlooms</p>
     </div>
 
-    <!-- Added Table with hover effect (light blue) showcasing jewelry items & details -->
-    <div class="table-container">
-        <h3>📖 heirloom collection at a glance</h3>
-        <table class="jewelry-table">
-            <thead>
-                <tr><th>Jewelry Type</th><th>Material & Heritage</th><th>Symbolism</th><th>Price</th></tr>
-            </thead>
-            <tbody>
-                <tr><td>Necklace</td><td>Akoya pearls, hand-knotted, inspired by Georgian era</td><td>Purity & wisdom</td><td>$425</td></tr>
-                <tr><td>Bracelet</td><td>Moonstone + sterling silver, Art Nouveau revival</td><td>Intuition & cycles</td><td>$189</td></tr>
-                <tr><td>Earrings</td><td>Filigree, rose-cut zircons, Victorian romanticism</td><td>Grace & femininity</td><td>$275</td></tr>
-                <tr><td>Bangles</td><td>Gold-plated brass, hand-hammered, traditional Indian craft</td><td>Prosperity & union</td><td>$349</td></tr>
-                <tr><td>Anklets</td><td>Oxidized silver with bell accents, ancient Payal tradition</td><td>Celebration & rhythm</td><td>$159</td></tr>
-            </tbody>
-        </table>
-        <p style="margin-top: 1rem; font-size: 0.8rem; text-align: center; color:#b17c8a;">✨ Each piece is ethically handcrafted • heirloom quality ✨</p>
-    </div>
-
-    <!-- extra decorative heritage note -->
+    <!-- decorative heritage note (extra) -->
     <div style="background: #fff2f5; border-radius: 2rem; padding: 1.2rem 1.8rem; margin: 1rem 0;">
         <p style="text-align: center; font-size: 0.9rem;">⭐ Our legacy is rooted in time-honored techniques — from hand-chasing metals to gemstone setting passed down through master artisans. Every necklace, bracelet, earring, bangle, and anklet is a tribute to ancient craftsmanship, yet designed for the modern spirit. ⭐</p>
     </div>
@@ -473,6 +551,7 @@
     <div class="footer">
         <p>© Lucent Heirlooms — preserving jewelry heritage for generations to come. Baby pink & timeless elegance.</p>
         <p style="margin-top: 0.3rem;">📿 necklaces · bracelets · earrings · bangles · anklets · heritage films 📿</p>
+        <p style="margin-top: 0.5rem; font-size: 0.7rem;">💰 All prices are in Kenyan Shillings (KES) based on current conversion.</p>
     </div>
 </div>
 </body>

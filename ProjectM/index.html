@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Lucent Heirlooms | Timeless Jewelry Heritage</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #fff5f8;  /* baby pink base */
+            font-family: 'Segoe UI', 'Roboto', 'Georgia', serif;
+            color: #5e3a4b;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        /* main container */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        /* header & hero */
+        .hero {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 1rem 0;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            letter-spacing: 2px;
+            font-weight: 400;
+            color: #b37b8a;
+            text-shadow: 2px 2px 8px rgba(255, 215, 225, 0.6);
+            font-family: 'Playfair Display', 'Georgia', serif;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #a36f7e;
+            max-width: 700px;
+            margin: 0.75rem auto 0;
+            font-style: italic;
+        }
+
+        /* heritage paragraphs (5 paragraphs) */
+        .heritage-section {
+            background: rgba(255, 245, 245, 0.7);
+            border-radius: 2rem;
+            padding: 1.5rem 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.02);
+        }
+
+        .heritage-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.4rem;
+        }
+
+        .heritage-card {
+            background: #fffafc;
+            padding: 1rem 1.5rem;
+            border-radius: 2rem;
+            transition: all 0.2s ease;
+            border-left: 5px solid #fad1dc;
+        }
+
+        .heritage-card p {
+            font-size: 1rem;
+            color: #5e3a4b;
+            font-weight: 400;
+        }
+
+        /* product showcase grid */
+        .products-title {
+            font-size: 2rem;
+            font-weight: 400;
+            text-align: center;
+            margin: 2rem 0 1.5rem;
+            color: #b37b8a;
+            border-bottom: 2px dashed #f8ced9;
+            display: inline-block;
+            width: auto;
+            padding-bottom: 0.4rem;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0 3rem;
+        }
+
+        /* product card */
+        .product-card {
+            background: #fff9fb;
+            border-radius: 1.75rem;
+            overflow: hidden;
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.03);
+            transition: transform 0.25s ease, box-shadow 0.3s;
+            text-align: center;
+            padding-bottom: 1rem;
+        }
+
+        .product-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        /* image wrapper with hover effect (light blue overlay / border / scale) */
+        .img-wrapper {
+            width: 100%;
+            height: 240px;
+            overflow: hidden;
+            background: #fceef2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .product-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease, filter 0.2s;
+        }
+
+        /* HOVER EFFECT FOR IMAGES: light blue glow + slight scale + light blue tint overlay */
+        .img-wrapper:hover .product-img {
+            transform: scale(1.03);
+            filter: brightness(1.02) drop-shadow(0 0 5px rgba(173, 216, 230, 0.6));
+        }
+
+        .img-wrapper:hover {
+            box-shadow: inset 0 0 0 3px #b0e0fa, 0 8px 18px rgba(176, 224, 250, 0.3);
+            background: #e6f4ff;
+        }
+
+        /* product info */
+        .product-info {
+            padding: 1rem 0.8rem 1rem;
+        }
+
+        .product-info h3 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #b16275;
+            margin-bottom: 0.35rem;
+        }
+
+        .product-info .desc {
+            font-size: 0.85rem;
+            color: #7e5b67;
+            margin-bottom: 0.5rem;
+        }
+
+        .price {
+            font-weight: 600;
+            color: #b37b8a;
+            font-size: 1.2rem;
+            letter-spacing: 0.5px;
+        }
+
+        /* table section with hover effect (light blue) */
+        .table-container {
+            background: #fffafc;
+            border-radius: 2rem;
+            padding: 1.5rem;
+            margin: 2rem 0 2rem;
+            box-shadow: 0 5px 12px rgba(0,0,0,0.02);
+        }
+
+        .table-container h3 {
+            font-size: 1.7rem;
+            font-weight: 400;
+            text-align: center;
+            color: #b37b8a;
+            margin-bottom: 1rem;
+        }
+
+        .jewelry-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: 'Segoe UI', system-ui;
+            background: #fffdfe;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+        }
+
+        .jewelry-table th,
+        .jewelry-table td {
+            padding: 1rem 1rem;
+            text-align: left;
+            border-bottom: 1px solid #ffe2ea;
+        }
+
+        .jewelry-table th {
+            background-color: #ffeef2;
+            color: #a45d6f;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .jewelry-table tr {
+            transition: all 0.2s ease;
+        }
+
+        /* HOVER EFFECT FOR TABLE ROWS: light blue background + subtle transition */
+        .jewelry-table tr:hover {
+            background-color: #e1f3fe;  /* soft light blue */
+            transition: 0.2s;
+        }
+
+        .jewelry-table td:hover {
+            background-color: #d4edff;  /* slightly deeper on cell hover for extra flair */
+            transition: 0.1s;
+        }
+
+        /* additional footer */
+        .footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 1.5rem 0 1rem;
+            border-top: 1px solid #fad1dc;
+            font-size: 0.8rem;
+            color: #a87c89;
+        }
+
+        /* responsive touches */
+        @media (max-width: 680px) {
+            .container {
+                padding: 1rem;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .product-grid {
+                gap: 1.2rem;
+            }
+            .jewelry-table th, .jewelry-table td {
+                padding: 0.7rem;
+            }
+        }
+
+        /* decorative */
+        .accent-text {
+            font-weight: 500;
+            color: #c28598;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- Hero section -->
+    <div class="hero">
+        <h1>✨ LUCENT HEIRLOOMS ✨</h1>
+        <p>where legacy meets luminosity — celebrating timeless artistry</p>
+    </div>
+
+    <!-- 5 heritage paragraphs about jewelry & their heritage -->
+    <div class="heritage-section">
+        <div class="heritage-grid">
+            <div class="heritage-card"><p>📜 <strong>The Eternal Allure of Adornment</strong> — Since antiquity, jewelry has been more than decoration; it is a language of identity, status, and spirituality. From Mesopotamian lapis lazuli beads to the granulation work of ancient Etruscans, each era sculpted beauty into wearable art. Our heritage draws from these ancestral techniques, honoring the belief that jewelry carries the whispers of generations.</p></div>
+            <div class="heritage-card"><p>🏺 <strong>Sacred Symbols & Craftsmanship</strong> — In many cultures, necklaces and pendants were talismans against evil, while bracelets symbolized eternal cycles. The meticulous lost-wax casting, filigree, and hand engraving passed through families for centuries. Every motif — from lotus to evil eye — tells a story of protection, love, and continuity. At Lucent Heirlooms, we revive these ancient narratives with ethical sourcing and artisanal devotion.</p></div>
+            <div class="heritage-card"><p>👑 <strong>Royal Courts & Regal Inspirations</strong> — The grandeur of Mughal empresses, the elegance of Art Deco flappers, and the romance of Victorian sentimental jewels shaped our collective aesthetic. Royal jewelry houses set standards of excellence using diamonds, pearls, and enamel work. Our collections echo that opulent heritage, but reimagined for the modern connoisseur — each piece is a bridge between majestic past and contemporary expression.</p></div>
+            <div class="heritage-card"><p>🌸 <strong>Symbolism of Gemstones & Metals</strong> — Rubies for passion, sapphires for wisdom, gold for solar energy and silver for lunar purity. Jewelry traditions across India, Persia, and Europe believed metals carried healing properties. Bangles were considered protectors of vitality; anklets celebrated the rhythm of life. Today, we continue this holistic heritage, selecting materials that resonate with the soul's journey and personal milestones.</p></div>
+            <div class="heritage-card"><p>🌿 <strong>Heirlooms of Tomorrow: Sustainability & Continuity</strong> — True heritage is not just about looking back, but preserving skills for the future. By blending recycled metals, lab-grown gems and collaborating with master artisans, we ensure that the legacy of handcrafted jewelry lives on. Each necklace, bracelet, earring, bangle, and anklet you see is designed to become a future family treasure — infused with meaning, memory, and meticulous artistry.</p></div>
+        </div>
+    </div>
+
+    <!-- 5 jewelry items: necklaces, bracelets, earrings, bangles, anklets -->
+    <div style="text-align: center;">
+        <span class="products-title">⋆  cherished collections  ⋆</span>
+    </div>
+
+    <div class="product-grid">
+        <!-- 1. NECKLACE -->
+        <div class="product-card">
+            <div class="img-wrapper">
+                <img class="product-img" src="https://placehold.co/600x600/FFD9E6/AA7B8B?text=Pearl+Heritage+Necklace" alt="Elegant pearl and gold necklace" style="background:#fdeef3;">
+                <!-- Note: using high-quality placeholder but visually matching jewelry theme. Representing beautiful necklace imagery -->
+            </div>
+            <div class="product-info">
+                <h3>✨ Celestial Pearl Necklace</h3>
+                <div class="desc">Freshwater pearls • 18k gold clasp • hand-knotted silk</div>
+                <div class="price">$425</div>
+            </div>
+        </div>
+
+        <!-- 2. BRACELETS -->
+        <div class="product-card">
+            <div class="img-wrapper">
+                <img class="product-img" src="https://placehold.co/600x600/FADADD/B6808F?text=Heritage+Chain+Bracelet" alt="Delicate link bracelet with charm" style="background:#ffe4eb;">
+            </div>
+            <div class="product-info">
+                <h3>🌙 Luna Embrace Bracelet</h3>
+                <div class="desc">adjustable chain • moonstone accent • sterling silver</div>
+                <div class="price">$189</div>
+            </div>
+        </div>
+
+        <!-- 3. EARRINGS -->
+        <div class="product-card">
+            <div class="img-wrapper">
+                <img class="product-img" src="https://placehold.co/600x600/F7CFDF/B27D8D?text=Victorian+Drop+Earrings" alt="Victorian style drop earrings" style="background:#fadbe6;">
+            </div>
+            <div class="product-info">
+                <h3>🌿 Antique Vine Earrings</h3>
+                <div class="desc">filigree design • rose-cut zircons • gold vermeil</div>
+                <div class="price">$275</div>
+            </div>
+        </div>
+
+        <!-- 4. BANGLES -->
+        <div class="product-card">
+            <div class="img-wrapper">
+                <img class="product-img" src="https://placehold.co/600x600/F2C9D4/B27385?text=Carved+Gold+Bangle" alt="Classic hinged bangle set" style="background:#ffdae4;">
+            </div>
+            <div class="product-info">
+                <h3>☀️ Sunburst Halo Bangles</h3>
+                <div class="desc">set of 2 • hammered texture • 22k gold finish</div>
+                <div class="price">$349</div>
+            </div>
+        </div>
+
+        <!-- 5. ANKLETS -->
+        <div class="product-card">
+            <div class="img-wrapper">
+                <img class="product-img" src="https://placehold.co/600x600/FADCE8/AA7081?text=Sequin+Anklet+Charm" alt="Delicate anklet with tiny bells" style="background:#ffe2ec;">
+            </div>
+            <div class="product-info">
+                <h3>🌸 Nupur Silver Anklet</h3>
+                <div class="desc">adjustable • bell charms • oxidized silver</div>
+                <div class="price">$159</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Added Table with hover effect (light blue) showcasing jewelry items & details -->
+    <div class="table-container">
+        <h3>📖 heirloom collection at a glance</h3>
+        <table class="jewelry-table">
+            <thead>
+                <tr><th>Jewelry Type</th><th>Material & Heritage</th><th>Symbolism</th><th>Price</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Necklace</td><td>Akoya pearls, hand-knotted, inspired by Georgian era</td><td>Purity & wisdom</td><td>$425</td></tr>
+                <tr><td>Bracelet</td><td>Moonstone + sterling silver, Art Nouveau revival</td><td>Intuition & cycles</td><td>$189</td></tr>
+                <tr><td>Earrings</td><td>Filigree, rose-cut zircons, Victorian romanticism</td><td>Grace & femininity</td><td>$275</td></tr>
+                <tr><td>Bangles</td><td>Gold-plated brass, hand-hammered, traditional Indian craft</td><td>Prosperity & union</td><td>$349</td></tr>
+                <tr><td>Anklets</td><td>Oxidized silver with bell accents, ancient Payal tradition</td><td>Celebration & rhythm</td><td>$159</td></tr>
+            </tbody>
+        </table>
+        <p style="margin-top: 1rem; font-size: 0.8rem; text-align: center; color:#b17c8a;">✨ Each piece is ethically handcrafted • heirloom quality ✨</p>
+    </div>
+
+    <!-- extra decorative heritage note -->
+    <div style="background: #fff2f5; border-radius: 2rem; padding: 1.2rem 1.8rem; margin: 1rem 0;">
+        <p style="text-align: center; font-size: 0.9rem;">⭐ Our legacy is rooted in time-honored techniques — from hand-chasing metals to gemstone setting passed down through master artisans. Every necklace, bracelet, earring, bangle, and anklet is a tribute to ancient craftsmanship, yet designed for the modern spirit. ⭐</p>
+    </div>
+
+    <div class="footer">
+        <p>© Lucent Heirlooms — preserving jewelry heritage for generations to come. Baby pink & timeless elegance.</p>
+        <p style="margin-top: 0.3rem;">📿 necklaces · bracelets · earrings · bangles · anklets 📿</p>
+    </div>
+</div>
+</body>
+  </html>
